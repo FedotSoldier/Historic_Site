@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+<!-- Сообщаем Django, что мы подключаем статические файлы -->
+<!-- Нужно указать именно staticfiles, а не static,
+     иначе при изменении css файла изменения не будут
+     приходить на сервер. Даже если удалить файл,
+     со static вместо staticfiles он продолжит работать -->
+{% load staticfiles %}
+
+{% block links %}
+	<link rel="stylesheet" href="{% static 'css/main_pg.css' %}">
+{% endblock %}
+
+
+{% block headline %}
+	Our history website<span>A Demo For Beautiful Historical Sites on the Web</span>
+{% endblock %}
+
+
+{% block content %}
+	<div class="scroll-list one-line first1">
+		<a href="">Link to the first page </a> <br/>
+		<a href="">Link to the second page</a> <br/>
+		<a href="">Link to the third page </a> <br/>
+		<a href="">Link to the fourth page</a> <br/>
+		<a href="">Link to the fifth page </a> <br/>
+		<a href="">Link to the six page   </a> <br/>
+		<a href="">Link to the seven page </a> <br/>
+		<a href="">Link to the eight page </a> <br/>
+		<a href="">Link to the nine page  </a> <br/>
+		<a href="">Link to the ten page   </a> <br/>
+	</div>
+	<div class="body one-line second1">
+		<p>
+			This is the test page!
+		</p>
+		<p1 class="date">
+			Created: Novemer 4, 2018
+		</p1>
+	</div>
+{% endblock %}

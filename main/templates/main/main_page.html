@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+<!-- Сообщаем Django, что мы подключаем статические файлы -->
+<!-- Нужно указать именно staticfiles, а не static,
+     иначе при изменении css файла изменения не будут
+     приходить на сервер. Даже если удалить файл,
+     со static вместо staticfiles он продолжит работать -->
+{% load staticfiles %}
+
+{% block links %}
+	<link rel="stylesheet" href="{% static 'css/main_pg.css' %}">
+{% endblock %}
+
+
+{% block headline %}
+	Our history website<span>A Demo For Beautiful Historical Sites on the Web</span>
+{% endblock %}
+
+
+{% block content %}
+	<div class="scroll-list one-line first1">
+		<a href="#">Link to the first page </a> <br/>
+		<a href="#">Link to the second page</a> <br/>
+		<a href="#">Link to the third page </a> <br/>
+		<a href="#">Link to the fourth page</a> <br/>
+		<a href="#">Link to the fifth page </a> <br/>
+		<a href="#">Link to the six page   </a> <br/>
+		<a href="#">Link to the seven page </a> <br/>
+		<a href="#">Link to the eight page </a> <br/>
+		<a href="#">Link to the nine page  </a> <br/>
+		<a href="#">Link to the ten page   </a> <br/>
+	</div>
+	<div class="body one-line second1">
+		<p>
+			<img class="img-150" src="{% static 'images/theGreatWarSoldier.jpg' %}" align="right" alt="Soviet soldier of the great Patriotic war"/>It has been suggested that beautiful and usable websites are created on a foundation of beautiful and usable typography. That makes it a pretty important element that you will want to look at very carefully. Fortunately, CSS offers a variety of styling options that allow you a great deal of control over how your present your content to your viewers and users. This demo - which is entirely driven by CSS - is built to demonstrate the step by step development of attractive typography, moving from basic HTML to fully styled content. You can use the buttons at the top of the page to view the content in various stages of styling, from completely unstyled to the completed design. Please feel free to have a bit of fun by working through the various stages.
+		</p>
+		<p1 class="date">
+			Created: Novemer 4, 2018
+		</p1>
+	</div>
+{% endblock %}
