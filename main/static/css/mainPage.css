@@ -75,26 +75,17 @@ color: rgb(69,54,37);
   border-radius: 20px;
   margin: 20px;
   padding: 10px 20px 10px 20px;
+  background-color: #f5ce9a;
 }
 
 .one-line {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-.first1 {
   padding: 10px;
   float: left;
   width: 15.5%;
   margin-right: 2%;
-}
-
-.second1 {
-  padding: 10px;
-  float: left;
-  width: 80%;
-  margin-right: 0;
 }
 
 .img-150 {
@@ -103,27 +94,17 @@ color: rgb(69,54,37);
   border-radius: 10px;
 }
 
-.most-bottom {
-  position: absolute; /* position: absolute */
-  bottom: 0;
-  left: 30px;
-  bottom: 20px;
-  color: #c8a2c8;
-  width: 140px;
-}
-
-.most-bottom:last-child {
-  bottom: 80px;
-}
-
 a.button {
+  margin-top: 40px;
+  margin-left: 15px;
   color: #fff;
   user-select: none; /* Убираем текстовое выделение */
   text-decoration: none;  /* Убираем подчеркивание */
   outline: none; /* Убираем контур вокруг ссылки */
   background-color: #fa8e47; /* Цвет фона */
-  padding: 1em 2em; /* Отступ от текста до рамки */
+  padding: 0.8em 1.4em; /* Отступ от текста до рамки */
   border-radius: 15px;
+  font-size: 20px;
 }
 
 a.button:active {
