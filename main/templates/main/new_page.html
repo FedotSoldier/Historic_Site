@@ -1,25 +1,23 @@
 {% extends 'main/base.html' %}
 
-<!-- Сообщаем Django, что мы подключаем статические файлы -->
 {% load staticfiles %}
 
 {% block links %}
 	<link rel="stylesheet" href="{% static 'css/mainPage.css' %}">
 {% endblock %}
 
-
 {% block headline %}
-	Our history website<span>A Demo For Beautiful Historical Sites on the Web</span>
+	Our history website
+	<span>My new page</span>
 {% endblock %}
-
 
 {% block content %}
 	<div class="body">
 		<p>
-			This is the test page!
+			This is the new test page!
 		</p>
 		<p1 class="date">
-			Created: Novemer 4, 2018
+			Created: Novemer 21, 2018
 		</p1>
 	</div>
 {% endblock %}
