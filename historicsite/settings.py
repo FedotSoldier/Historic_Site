@@ -25,7 +25,7 @@ SECRET_KEY = '(8&o(d-ry#zweh0l1ud@4bi3=4apf*f)t-e65a^xq9*d^q5em+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'fedotsoldier.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', 'FedotSoldier.pythonanywhere.com']
 
 
 # Application definition
