@@ -1,0 +1,17 @@
+table {
+	margin: 20px;
+}
+
+.sub {
+	text-align:center;
+	background: lightsteelblue;
+	font-size: 100%;
+}
+
+td {
+	width: 100px;
+}
+
+h2 {
+	text-decoration: underline;
+}

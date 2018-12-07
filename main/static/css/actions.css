@@ -1,0 +1,16 @@
+h2 {
+	text-decoration: underline;
+}
+
+.remark {
+	padding: 0.5%;
+	width: 30%;
+	background-color: white;
+	font-size: 80%;
+	float: right;
+	margin: 0;
+}
+
+table {
+	margin: 20px;
+}
