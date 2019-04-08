@@ -23,6 +23,10 @@ body {
   color: rgb(45,35,23);
 }
 
+h2 {
+	text-decoration: underline;
+}
+
 h1 span {
   display: block;
   margin-top: 0.5em;

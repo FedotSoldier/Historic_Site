@@ -1,10 +1,10 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 from . import views
 from django.urls import path
 
 urlpatterns = [
-	path('', views.page_detail, {'pattern':'main_page'}),
-	path('page/<slug:pattern>/', views.page_detail, name='page_detail'),
+	path('', views.page_detail, {'pattern': 'main_page'}),
+	re_path('page/(?P<pattern>.+)/', views.page_detail, name='page_detail'),
 ]
 
 '''

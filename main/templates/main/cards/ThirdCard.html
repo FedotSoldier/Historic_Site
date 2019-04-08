@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% load staticfiles %}
+
+{% block links %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/popup_img.js' %}"></script>
+{% endblock %}
+
+{% block headline %}
+	Белостокско-Минское сражение<span>{{ curr_page.title }}</span>
+{% endblock %}
+
+{% block content %}
+
+<div class="body">
+	<h2 class="h">Картография</h2>
+
+    <font color="#646664" size="25px" style="margin-left:20%;">
+        Карта положения войск Юго-Западного и Западного фронтов на 27 июня
+    </font>
+
+	<div style="margin-top:2%;">
+		<div style="display:inline-block; width:40%;">
+			<p style="font-size:25px;">
+				Описывает период 27.06.1941 г.
+                Дата создания документа: 27.06.1941 г.
+                Архив: ЦАМО, Фонд: 208, Опись: 2511, Дело: 402
+                Авторы документа: ЗапФ
+				<a href="https://pamyat-naroda.ru/documents/view/?id=101162648&backurl=division%5C21%20ск::begin_date%5C27.06.1941::end_date%5C27.06.1941::use_main_string%5Ctrue::group%5Cmap::types%5Ckarti:shemi">
+					Источник
+				</a>
+			</p>
+		</div>
+		<div style="display:inline-block; width:40%;">
+			<img src="{% static 'images/maps/208_2511_402_1.jpg' %}"
+				 width="35%" align="middle" style="border-radius:5px;">
+		</div>
+	</div>
+	<p1 class="date">
+		Created: April 7, 2019
+	</p1>
+</div>
+
+{% endblock %}

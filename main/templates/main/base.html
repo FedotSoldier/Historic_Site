@@ -5,6 +5,7 @@
 <head>
 	<title>Historic site</title>
 	<meta charset="UTF-8"/>
+	<link rel="icon" href="{% static 'images/favicon_ico.png' %}" sizes="48x48" />
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
@@ -21,7 +22,7 @@
 	</div>
 	<div class="scroll-list one-line">
 		{% for page in pages %}
-			<a href="{% url 'page_detail' pattern=page.urlpattern_name %}">{{page.title}}</a> <br/>
+			<a href="{% url 'page_detail' pattern=page.urlpattern_name %}">{{ page.title }}</a> <br/>
 		{% endfor %}
 	</div>
 	<a class="button one-line" href="{% url 'page_detail' pattern=prev_page %}">Previous page </a>

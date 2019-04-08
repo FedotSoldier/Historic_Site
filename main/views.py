@@ -5,13 +5,13 @@ from .models import Page
 # Create your views here.
 
 def page_detail(request, pattern):
-	# Все нащи страницы - записи в бд Pages
+	# Все наши страницы - записи в бд Pages
 	pages = Page.objects.order_by('sort')
 
 	# page = get_object_or_404(Page, urlpattern_name=pattern)
 	# return render(request, 'main/page_detail.html', {'page':page})
 
-	''' Получаем объекты текущего, следующего и предыдущего постов '''
+	# Получаем объекты текущего, следующего и предыдущего постов
 
 	# Получаем объект текущей страницы
 	curr_page = Page.objects.get(urlpattern_name=pattern)
@@ -34,12 +34,10 @@ def page_detail(request, pattern):
 		prev_page = list(pages)[index - 2].urlpattern_name
 
 	return render(
-				  request,
-				  'main/{}.html'.format(pattern),
-				  	{
-				  	'pages':pages,
-				  	'curr_page':curr_page,
-				  	'prev_page':prev_page,
-				  	'next_page':next_page
-				  	 }
-				 )
+		request,
+		'main/{}.html'.format(pattern),
+		{'pages': pages,
+		'curr_page': curr_page,
+		'prev_page': prev_page,
+		'next_page': next_page}
+	)
