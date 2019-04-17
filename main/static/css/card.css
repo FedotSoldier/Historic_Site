@@ -1,13 +1,9 @@
-p {
-    text-indent: 0px;
-}
-
 body {
 	margin:0;
 }
 
 img {
-	margin:30px;
+	margin:1%;
 	cursor:pointer;
 }
 
