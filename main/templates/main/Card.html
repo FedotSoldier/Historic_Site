@@ -16,33 +16,29 @@
 
 <div class="body">
 	<div style="width:40%; display:inline-block; vertical-align:top; margin-left:2%;">
-		<h2>Положение 24 – 25 июня</h2>
+		<h2>{{ curr_page.subtitle }}</h2>
 		<p>
-			{{ curr_page.content }}
+			{{ curr_page.content|safe }}
 		</p>
 	</div>
 	<div style="width:15%; display:inline-block;">
 	</div>
 	<div style="width:40%; display:inline-block;">
 		<div>
-			<img src="{% static 'images/maps/208_2511_425_1.jpg' %}"
+			<img src="{{ curr_page.card_link }}"
 				 width="60%" style="border-radius:5px;">
 		</div>
 		<div>
-			<p style="text-indent:0%;; text-align:left; font-size:20px;">
-				Карта положения войск фронта на 24-25 июня<br>
-				Описывает период с 24.06.1941 по 25.06.1941 г.<br>
-				Дата создания документа: 25.06.1941 г.<br>
-				Архив: ЦАМО, Фонд: 208, Опись: 2511, Дело: 425<br>
-				Авторы документа: ЗапФ
-				<a href="https://pamyat-naroda.ru/documents/view/?id=101164315&backurl=division%5C21%20ск::begin_date%5C24.06.1941::end_date%5C25.06.1941::use_main_string%5Ctrue::group%5Cmap::types%5Ckarti:shemi">
+			<p style="text-indent:0%; text-align:left; font-size:20px;">
+				{{ curr_page.card_description|linebreaksbr }}
+				<a href="{{ curr_page.card_source }}">
 					Источник
 				</a>
 			</p>
 		</div>
 	</div>
 	<p1 class="date">
-		Created: April 7, 2019
+		Created: {{ curr_page.created_date|date:"j, F Y" }}
 	</p1>
 </div>
 

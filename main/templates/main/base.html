@@ -14,36 +14,62 @@
 
 </head>
 <body>
-	<h1 class="h headline">
-		{% block headline %}{% endblock %}
-	</h1>
-	<div class="meta">
-		An <span>Article</span> by <span><a href="">@FedotSoldier</a></span>
+	<div class="header">
+		<h1 class="h headline">
+			{% block headline %}{% endblock %}
+		</h1>
 	</div>
-	<div class="scroll-list" style="width:20; display:inline-block;">
-		{% for page in pages %}
-			<a {% if page == curr_page %} style="color:#ffa500;" {% endif %}
-			   href="{% url 'page_detail' pattern=page.urlpattern_name %}">{{ page.title }}
-			</a> <br/>
-		{% endfor %}
-	</div>
-	<a class="button" href="{% url 'page_detail' pattern=prev_page %}"
-	   style="width:10%; display:inline-block; vertical-align:top;">
-		Previous page
-	</a>
-	<a class="button" href="{% url 'page_detail' pattern=next_page %}"
-	   style="width:10%; display:inline-block; vertical-align:top;">
-		Next page
-	</a>
+	<div class="main-content">
+		<div class="meta">
+			An <span>Article</span> by <span><a href="">@FedotSoldier</a></span>
+		</div>
+		<div class="scroll-list" style="width:20%; display:inline-block;">
+			{% for page in pages %}
+				<a {% if page == curr_page %} style="color:#ffa500;" {% endif %}
+				   href="{% url 'page_detail' pk=page.pk %}">{{ page.title }}
+				</a> <br/>
+			{% endfor %}
+		</div>
+		<a class="button" href="{% url 'page_detail' pk=prev_page_pk %}"
+		   style="width:10%; display:inline-block; vertical-align:top;">
+			Предыдущая
+		</a>
+		<a class="button" href="{% url 'page_detail' pk=next_page_pk %}"
+		   style="width:10%; display:inline-block; vertical-align:top;">
+			Следующая
+		</a>
 
-	<div class="content">
-		{% block content %}
-		{% endblock %}
+		<div class="block-content">
+			{% block content %}
+			{% endblock %}
+		</div>
+
+		<a class="button" href="{% url 'page_detail' pk=prev_page_pk %}"
+		   style="width:10%; display:inline-block; vertical-align:top;">Предыдущая</a>
+		<a class="button" href="{% url 'page_detail' pk=next_page_pk %}"
+		   style="width:10%; display:inline-block; vertical-align:top;">Следующая</a>
 	</div>
-	
-	<br/><br/><br/>
-	<a href="{% url 'page_detail' pattern=prev_page %}" class="button">Previous page </a>
-	<a href="{% url 'page_detail' pattern=next_page %}" class="button">Next page     </a>
-	<br/><br/><br/>
+
+	<div class="footer">
+		<div style="width:55%; display:inline-block; vertical-align:top; margin-top:-2%;">
+			<strong><font color="white" size="3px">
+				Проект выполнен в рамках кейса №57 ШРД 2018/19 гг.
+			</font></strong><br><br>
+			<u><font color="white" size="3px">Куратор проекта:</font><br></u>
+			<font color="white" size="3px" style="margin-left:2%;">Алексей Васецкий</font><br><br>
+			<u><font color="white" size="3px">Руководитель проекта:</font></u><br>
+			<font color="white" size="3px" style="margin-left:2%;">Нелли Шишкова</font><br><br>
+			<u><font color="white" size="3px">Авторы:</font></u><br>
+			<font color="white" size="3px" style="margin-left:2%;">Хрусталёв Егор</font><br>
+			<font color="white" size="3px" style="margin-left:2%;">Орлов Иван</font><br>
+			<font color="white" size="3px" style="margin-left:2%;">Чернолуцкий Фёдор</font><br><br>
+		</div>
+		<div style="width:20%; display:inline-block;">
+			<img src="{% static 'images/shrd.jpg' %}" width="200" style="border-radius:5px; margin-bottom:3%;">
+		</div>
+		<div style="width:20%; display:inline-block;">
+			<img src="{% static 'images/sponsors.jpg' %}" width="200" style="border-radius:5px;">
+		</div>
+	</div>
 </body>
 </html>

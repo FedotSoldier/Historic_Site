@@ -1,43 +1,64 @@
 from django.shortcuts import render
-# from django.shortcuts import get_object_or_404
 from .models import Page
 
-# Create your views here.
 
-def page_detail(request, pattern):
-	# Все наши страницы - записи в бд Pages
+def main_page(request):
 	pages = Page.objects.order_by('sort')
+	curr_page = pages[0]
 
-	# page = get_object_or_404(Page, urlpattern_name=pattern)
-	# return render(request, 'main/page_detail.html', {'page':page})
+	return page_detail(request, curr_page.pk)
 
-	# Получаем объекты текущего, следующего и предыдущего постов
 
-	# Получаем объект текущей страницы
-	curr_page = Page.objects.get(urlpattern_name=pattern)
-	
-	# Получаем индекс элемента данного поста в queryset
-	index = list(pages).index(curr_page)
+def page_detail(request, pk):
+	curr_page = Page.objects.get(pk=pk)
+	if curr_page.is_usual:
+		# Если `curr_page.is_usual`, то объект этой страницы должна иметь поле `urlpattern`(см. ниже)
+		return usual_page_detail(request, pk)
+	return card_page_detail(request, pk)
 
-	# Получаем индекс следующего элемента
-	# (для кнопок следующей и предыдущей страниц)
-	index = (index + 1) % len(pages)
 
-	# Следующий пост
-	next_page = list(pages)[index].urlpattern_name
+def usual_page_detail(request, pk):
+	pages = Page.objects.order_by('sort')
+	curr_page = Page.objects.get(pk=pk)
 
-	# Предыдущий пост
-	# Если на сайте всего одна страница:
-	if len(pages) == 1:
-		prev_page = next_page
-	else:
-		prev_page = list(pages)[index - 2].urlpattern_name
+	indexes = get_prev_and_next_indexes(pages, curr_page)
+	prev_page_pk = list(pages)[indexes[0]].pk
+	next_page_pk = list(pages)[indexes[1]].pk
 
 	return render(
 		request,
-		'main/{}.html'.format(pattern),
-		{'pages': pages,
-		'curr_page': curr_page,
-		'prev_page': prev_page,
-		'next_page': next_page}
+		'main/{}'.format(curr_page.urlpattern),
+		{
+			'pages': pages,
+			'curr_page': curr_page,
+			'prev_page_pk': prev_page_pk,
+			'next_page_pk': next_page_pk
+		}
 	)
+
+
+def card_page_detail(request, pk):
+	pages = Page.objects.order_by('sort')
+	curr_page = Page.objects.get(pk=pk)
+
+	indexes = get_prev_and_next_indexes(pages, curr_page)
+	prev_page_pk = list(pages)[indexes[0]].pk
+	next_page_pk = list(pages)[indexes[1]].pk
+
+	return render(
+		request,
+		'main/Card.html',
+		{
+			'pages': pages,
+			'curr_page': curr_page,
+			'prev_page_pk': prev_page_pk,
+			'next_page_pk': next_page_pk
+		}
+	)
+
+
+def get_prev_and_next_indexes(query, curr_obj):
+	curr_index = list(query).index(curr_obj)
+	next_index = (curr_index + 1) % len(query)
+	prev_index = curr_index - 1 if len(query) > 1 else next_index
+	return prev_index, next_index
